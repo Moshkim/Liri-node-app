@@ -1,0 +1,24 @@
+{
+  "name": "liri",
+  "version": "1.0.0",
+  "description": "Siri like node app to grab inputs and retrieve data from different api",
+  "main": "liri.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moshkim/Liri-node-app.git"
+  },
+  "author": "Moses",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Moshkim/Liri-node-app/issues"
+  },
+  "homepage": "https://github.com/Moshkim/Liri-node-app#readme",
+  "dependencies": {
+    "node-spotify-api": "^1.0.7",
+    "request": "^2.83.0",
+    "twitter": "^1.7.1"
+  }
+}
