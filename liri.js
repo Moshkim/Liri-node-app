@@ -7,16 +7,16 @@ var request = require('request')
 var fs = require('fs')
 
 var client = new Twitter({
-    consumer_key: Keys.consumer_key,
-    consumer_secret: Keys.consumer_secret,
-    access_token_key: Keys.access_token_key,
-    access_token_secret: Keys.access_token_secret
+    consumer_key: Keys.twitterKeys.consumer_key,
+    consumer_secret: Keys.twitterKeys.consumer_secret,
+    access_token_key: Keys.twitterKeys.access_token_key,
+    access_token_secret: Keys.twitterKeys.access_token_secret
 })
 
 
 var spotify = new Spotify({
-    id: Keys.id,
-    secret: Keys.secret
+    id: Keys.spotifyKeys.id,
+    secret: Keys.spotifyKeys.secret
 })
 
 var commend = process.argv[2]
@@ -49,13 +49,13 @@ function order(commend) {
 
 function myTweet() {
     client
-    .get('/statuses/user_timeline.json', { count: 5, screen_name: 'tweets' }, function(error, tweets, response){
-        console.log("We have requested and getting some data")
+    .get('/statuses/user_timeline.json', {count:5 ,creen_name: 'MoMo55555751' }, function(error, tweets, response){
+        //console.log("We have requested and getting some data")
         if(error){
             console.log(error)
         } else {
-            console.log(tweets)
-            logging('my-tweets', 'nohing', tweets)
+            console.log(tweets[0].text)
+            logging('my-tweets', 'nothing', tweets[0].text)
         }
     })
 }
@@ -116,7 +116,8 @@ function movieFunc(title) {
         } else {
             if(body){
                 var json = JSON.parse(body)
-                var info = "Title: " + json.Title +
+                var info = 
+                "Title: " + json.Title +
                 "\nYear: " + json.Year + 
                 "\nIMDB Rating: " + json.imdbRating + 
                 "\nRotten Tomatoes Rating: " + json.Ratings[1].Value +
@@ -135,7 +136,7 @@ function movieFunc(title) {
                     if(error){
                         console.log(error)
                     } else {
-                        let json = JSON.parse(body)
+                        var json = JSON.parse(body)
                         var info = "Title: " + json.Title +
                         "\nYear: " + json.Year + 
                         "\nIMDB Rating: " + json.imdbRating + 
